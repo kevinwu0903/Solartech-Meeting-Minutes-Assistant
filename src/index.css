@@ -1,0 +1,179 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  
+  /* Comprehensive Hex color overrides for html2canvas compatibility */
+  --color-blue-50: #eff6ff;
+  --color-blue-100: #dbeafe;
+  --color-blue-200: #bfdbfe;
+  --color-blue-300: #93c5fd;
+  --color-blue-400: #60a5fa;
+  --color-blue-500: #3b82f6;
+  --color-blue-600: #2563eb;
+  --color-blue-700: #1d4ed8;
+  --color-blue-800: #1e40af;
+  --color-blue-900: #1e3a8a;
+  --color-blue-950: #172554;
+  
+  --color-slate-50: #f8fafc;
+  --color-slate-100: #f1f5f9;
+  --color-slate-200: #e2e8f0;
+  --color-slate-300: #cbd5e1;
+  --color-slate-400: #94a3b8;
+  --color-slate-500: #64748b;
+  --color-slate-600: #475569;
+  --color-slate-700: #334155;
+  --color-slate-800: #1e293b;
+  --color-slate-900: #0f172a;
+  --color-slate-950: #020617;
+
+  --color-red-50: #fef2f2;
+  --color-red-100: #fee2e2;
+  --color-red-500: #ef4444;
+  --color-red-600: #dc2626;
+
+  --color-green-50: #f0fdf4;
+  --color-green-100: #dcfce7;
+  --color-green-500: #22c55e;
+  --color-green-600: #16a34a;
+
+  --color-yellow-50: #fefce8;
+  --color-yellow-100: #fef9c3;
+  --color-yellow-600: #ca8a04;
+
+  /* Force Typography colors to Hex */
+  --tw-prose-body: #334155 !important;
+  --tw-prose-headings: #0f172a !important;
+  --tw-prose-links: #2563eb !important;
+  --tw-prose-bold: #0f172a !important;
+  --tw-prose-counters: #64748b !important;
+  --tw-prose-bullets: #cbd5e1 !important;
+  --tw-prose-hr: #e2e8f0 !important;
+  --tw-prose-quotes: #0f172a !important;
+  --tw-prose-quote-borders: #e2e8f0 !important;
+  --tw-prose-th-borders: #cbd5e1 !important;
+  --tw-prose-td-borders: #e2e8f0 !important;
+}
+
+/* Force standard colors during PDF generation */
+@media print {
+  * {
+    color-interpolation-filters: sRGB !important;
+    color: inherit !important;
+    background-color: transparent !important;
+    -webkit-print-color-adjust: exact;
+  }
+  h1, h2, h3, table, tr, img {
+    break-inside: avoid !important;
+  }
+}
+
+@layer base {
+  body {
+    @apply antialiased;
+  }
+}
+
+/* Custom Markdown Styles */
+.markdown-body {
+  @apply text-slate-700 leading-relaxed;
+}
+
+.markdown-body h1 {
+  @apply text-3xl font-extrabold text-slate-900 mt-8 mb-4 border-b pb-2 border-slate-200;
+}
+
+.markdown-body h2 {
+  @apply text-2xl font-bold text-slate-800 mt-10 mb-5 border-b pb-1 border-slate-100;
+}
+
+.markdown-body h3 {
+  @apply text-xl font-semibold text-slate-800 mt-6 mb-3;
+}
+
+.markdown-body p {
+  @apply mb-4;
+}
+
+.markdown-body ul, .markdown-body ol {
+  @apply mb-4 ml-6 list-outside;
+}
+
+.markdown-body ul {
+  @apply list-disc;
+}
+
+.markdown-body ol {
+  @apply list-decimal;
+}
+
+.markdown-body li {
+  @apply mb-1;
+}
+
+.markdown-body table {
+  @apply w-full border-collapse border border-slate-200 mb-6 text-sm overflow-hidden rounded-lg;
+}
+
+.markdown-body th {
+  @apply bg-slate-50 border border-slate-200 px-4 py-3 text-left font-bold text-slate-700 uppercase tracking-wider;
+}
+
+.markdown-body td {
+  @apply border border-slate-200 px-4 py-3 text-slate-600 align-top;
+}
+
+.markdown-body tr:nth-child(even) {
+  @apply bg-slate-50/50;
+}
+
+.markdown-body blockquote {
+  @apply border-l-4 border-blue-200 pl-4 py-1 italic text-slate-500 mb-4 bg-blue-50/30 rounded-r;
+}
+
+/* Print Styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  body {
+    background-color: white !important;
+  }
+  
+  header, footer, section:first-of-type, button {
+    display: none !important;
+  }
+  
+  main {
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  
+  .lg\:col-span-12 {
+    grid-column: span 12 / span 12 !important;
+  }
+  
+  .shadow-xl, .shadow-sm {
+    box-shadow: none !important;
+    border: none !important;
+  }
+
+  .markdown-body {
+    font-size: 11pt !important;
+  }
+
+  .markdown-body h1, .markdown-body h2 {
+    page-break-after: avoid;
+  }
+
+  .markdown-body table {
+    page-break-inside: auto;
+  }
+
+  .markdown-body tr {
+    page-break-inside: avoid;
+    page-break-after: auto;
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "name": "光洋科會議紀錄分析助手V7",
+  "description": "專業級商業會議紀錄分析工具。自動從逐字稿、筆記或錄音轉文字中萃取結論、決議事項、執行項目 (Action Items) 與風險評估。",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
